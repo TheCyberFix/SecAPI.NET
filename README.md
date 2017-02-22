@@ -1,4 +1,4 @@
-# SecAPI
+# SecAPI.NET
 
 A collection of simple APIs for security products initally created to respond to new IOCs at 'machine speed.'
 
@@ -23,13 +23,13 @@ var x = new AMPClientv1("https://api.amp.cisco.com/v1/", ampAPIun, ampAPIkey);
 CiscoAMPEndpointsv1.RootObject rootObj = x.getComputerByHostname("host", 10);
 
 //Powerful retrospective quarantine
-x.postSHAtoFileList(ampCustomFileListGUID, sha256)
+x.postSHAtoFileList(ampCustomFileListGUID, sha256);
 ```
 
 
 
 ## Proofpoint TAP API
-- A basic API Client for ProofPoint TAP API.  See https://help.proofpoint.com/Threat_Insight_Dashboard/API_Documentation
+- A basic API Client for ProofPoint TAP API v2.  See https://help.proofpoint.com/Threat_Insight_Dashboard/API_Documentation
 
 Example:
 ```
@@ -41,7 +41,7 @@ var x = new PPTAPClientv2("https://tap-api-v2.proofpoint.com/v2/", PPServicePrin
 //Get email message events
 var events = x.getEvents();
 
-//Forensic data related to threat
+//Forensic data related to threat and campaign
 var rept = x.getForensics(sha256, true);
 
 ```
