@@ -38,11 +38,14 @@ using SecAPI.Models;
 
 var x = new PPTAPClientv2("https://tap-api-v2.proofpoint.com/v2/", PPServicePrincipal, PPSecret );
 
-//Get email message events
+//Get email message (SIEM) events
 var events = x.getEvents();
 
 //Forensic data related to threat and campaign
 var rept = x.getForensics(sha256, true);
+
+//Campaign data
+var campRtp = x.getCampaign(campaignID);
 
 ```
 

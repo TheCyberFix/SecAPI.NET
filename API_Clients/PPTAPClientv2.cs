@@ -1,11 +1,12 @@
-﻿using RestSharp;
+﻿using System;
+using RestSharp;
 using SecAPI.APIClientBase;
 using SecAPI.Models;
 
 namespace SecAPI
 {
     /// <summary>
-    /// A simple API Client for ProofPoint TAP API.  See https://help.proofpoint.com/Threat_Insight_Dashboard/API_Documentation
+    /// A simple API Client for ProofPoint TAP API v2.  See https://help.proofpoint.com/Threat_Insight_Dashboard/API_Documentation
     /// </summary>
     public class PPTAPClientv2 : APIClient
     {
@@ -33,6 +34,15 @@ namespace SecAPI
 
         }
 
+
+        private ProofPointTAPv2.CampaignRootObject callPPCampaignAPI(string _resource)
+        {
+            var request = new RestRequest();
+            request.Resource = _resource;
+            return Execute<ProofPointTAPv2.CampaignRootObject>(request);
+        }
+
+
         public ProofPointTAPv2.EventsRootObject getEvents(int sinceSeconds = 3600)
         {
             return callPPEventsAPI(string.Format("siem/all?format=json&sinceSeconds={0}", sinceSeconds));
@@ -44,6 +54,11 @@ namespace SecAPI
             return callPPForensicsAPI(string.Format("forensics?threatId={0}&includeCampaignForensics={1}", forensicsID, includeCampaignForensics));
         }
 
+        public ProofPointTAPv2.CampaignRootObject getCampaign(string campaignID)
+        {
+            return callPPCampaignAPI(string.Format("campaign/{0}", campaignID));
+        }
+         
 
     }
 }

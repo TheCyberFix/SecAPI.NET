@@ -74,8 +74,13 @@ namespace SecAPI
         }
 
 
-
-        public CiscoAMPEndpointsv1.RootObject getSearchTrajectory(string searchTerm, int returnLimit)
+        /// <summary>
+        /// Fetch list of computers that have observed activity with given query value
+        /// </summary>
+        /// <param name="queryValue">file name, SHA256, IP, or URL</param>
+        /// <param name="returnLimit"></param>
+        /// <returns>There is a hard limit of 5000 historical entries searched for this endpoint.</returns>
+        public CiscoAMPEndpointsv1.RootObject getSearchActivity(string searchTerm, int returnLimit)
         {
             return GETCallAMPAPI(string.Format("computers/activity?q={0}&offset=0&limit={1}", searchTerm, returnLimit));
         }
@@ -100,6 +105,30 @@ namespace SecAPI
             return GETCallAMPAPI("file_lists/simple_custom_detections");
         }
 
+
+
+        /// <summary>
+        /// Provides a list of all activities associated with a particular computer. This is analogous to the Device Trajectory on the FireAMP Console.
+        /// </summary>
+        /// <param name="connectorGUID"></param>
+        /// <returns></returns>
+        public CiscoAMPEndpointsv1.RootObject getComputerTrajectory(string connectorGUID)
+        {
+            return GETCallAMPAPI(string.Format("computers/{0}/trajectory", connectorGUID));
+        }
+
+
+        /// <summary>
+        /// Provides a list of all activities associated with a particular computer. This is analogous to the Device Trajectory on the FireAMP Console.
+        /// </summary>
+        /// <param name="connectorGUID"></param>
+        /// <param name="queryTerm">you can search for an IP Address, SHA256 or URL.</param>
+        /// <param name="returnLimit"></param>
+        /// <returns></returns>
+        public CiscoAMPEndpointsv1.RootObject getComputerTrajectorySearch(string connectorGUID, string queryTerm, int returnLimit)
+        {
+            return GETCallAMPAPI(string.Format("computers/{0}/trajectory?q={1}&limit={2}", connectorGUID, queryTerm, returnLimit));
+        }
 
 
     }

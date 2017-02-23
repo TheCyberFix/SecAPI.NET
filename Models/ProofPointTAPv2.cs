@@ -15,7 +15,7 @@ namespace SecAPI.Models
             public string threatType { get; set; }
         }
 
-
+         
 
         public class MessagesDelivered
         {
@@ -74,7 +74,7 @@ namespace SecAPI.Models
 
 
 
-        //Forensic API
+        //Forensic Model
 
         public class What
         {
@@ -134,6 +134,52 @@ namespace SecAPI.Models
             public List<Report> reports { get; set; }
         }
 
+
+
+
+
+
+
+        //Campaign Model
+
+
+        public class Actor
+        {
+            public string id { get; set; }
+            public string name { get; set; }
+        }
+
+        public class Malware
+        {
+            public string id { get; set; }
+            public string name { get; set; }
+        }
+
+        public class CampaignMember
+        {
+            public string id { get; set; }
+            public string threat { get; set; }
+            public string type { get; set; }
+            public string subType { get; set; }
+            public string threatTime { get; set; }
+        }
+
+        public class Technique
+        {
+            public string id { get; set; }
+            public string name { get; set; }
+        }
+
+        public class CampaignRootObject
+        {
+            public string name { get; set; }
+            public string description { get; set; }
+            public string startDate { get; set; }
+            public List<Actor> actors { get; set; }
+            public List<Malware> malware { get; set; }
+            public List<CampaignMember> campaignMembers { get; set; }
+            public List<Technique> techniques { get; set; }
+        }
 
 
     }
