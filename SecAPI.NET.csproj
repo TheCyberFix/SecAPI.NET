@@ -44,10 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="API_Clients\AMPClientv1.cs" />
+    <Compile Include="API_Clients\CiscoAMPClientv1.cs" />
+    <Compile Include="API_Clients\MicrosoftAMSIClientv10_0_14393_0.cs" />
     <Compile Include="API_Shared\APIClient.cs" />
     <Compile Include="Models\CiscoAMPEndpointsv1.cs" />
-    <Compile Include="API_Clients\PPTAPClientv2.cs" />
+    <Compile Include="API_Clients\ProofpointTAPClientv2.cs" />
     <Compile Include="Models\ProofPointTAPv2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

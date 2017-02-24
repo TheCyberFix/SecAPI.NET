@@ -9,9 +9,9 @@ namespace SecAPI
     /// <summary>
     /// A Basic API Client for Cisco AMP for Endpoints API v1.  See https://api-docs.amp.cisco.com/
     /// </summary>
-    public class AMPClientv1 : APIClient
+    public class CiscoAMPClientv1 : APIClient
     {
-        public AMPClientv1(string uriBase, string username, string password) : base(uriBase, username, password)
+        public CiscoAMPClientv1(string uriBase, string username, string password) : base(uriBase, username, password)
         {
 
         }

@@ -8,9 +8,9 @@ namespace SecAPI
     /// <summary>
     /// A simple API Client for ProofPoint TAP API v2.  See https://help.proofpoint.com/Threat_Insight_Dashboard/API_Documentation
     /// </summary>
-    public class PPTAPClientv2 : APIClient
+    public class ProofpointTAPClientv2 : APIClient
     {
-        public PPTAPClientv2(string uriBase, string username, string password) : base(uriBase, username, password)
+        public ProofpointTAPClientv2(string uriBase, string username, string password) : base(uriBase, username, password)
         {
 
 
